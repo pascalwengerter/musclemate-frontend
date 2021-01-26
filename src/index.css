@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: "Poppins";
+    src: local("Poppins"),   url(./assets/fonts/Poppins/Poppins-Bold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Hind";
+    src: local("Hind"),   url(./assets/fonts/Hind/Hind-Regular.ttf) format("truetype");
+}
+
+html, body {
+    background-color: #E5E5E5;
+    font-family: Hind, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#app h1,h2,h3,h4,h5,h6,.btn {
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    color: #183A4B;
+}
+
+h1,h2 {
+    padding-top: 30px;
+}
+
+h1 {
+    @apply text-8xl tracking-tight;
+}
+
+#nav {
+    text-transform: uppercase;
+}
+
+.logo-img {
+    width: 3em;
+    height: 3em;
+    display: inline-block;
+}
+
+.btn {
+    @apply font-bold rounded-2xl;
+}
+
+.btn-gradient {
+    @apply m-5 text-white py-4 px-6 bg-gradient-to-r from-secondary to-primary;
+}
+
+.btn-reverse {
+    @apply m-5 text-dark border-dark border-4 py-3 px-5 bg-whiteish;
+}
+
+.logo-img-dark {
+    padding-top: 30px;
+    width: 6em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer a {
+    /* @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary to-primary font-black;  */
+}
