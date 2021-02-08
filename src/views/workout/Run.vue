@@ -10,6 +10,8 @@
 import { ref } from "vue"
 import store from '../../store/store'
 import workouts from "../../workouts"
+import whistleActiveSound from "../../assets/sounds/whistle_2.mp3"
+import whistleRestSound from "../../assets/sounds/whistle.mp3"
 
 export default{
     setup(){
@@ -30,9 +32,9 @@ export default{
             }
         }
         const countDown = ref(0)
-        const activeSoundConfig = [0.5, 371, 'triangle', 495] // [volume, frequency, type, duration]
-        const pauseSoundConfig = [0.5, 171, 'square', 495]
-        const audioCtx = new(window.AudioContext || window.webkitAudioContext)()
+        const whistleActive = new Audio(whistleActiveSound);
+        const whistleRest = new Audio(whistleRestSound);
+
         return{
             exerciseIntervall,
             restInterval,
@@ -43,11 +45,10 @@ export default{
             workoutProgress,
             workoutLength,
             countDown,
-            activeSoundConfig,
-            pauseSoundConfig,
-            audioCtx,
             paused: false,
-            progress: 0
+            progress: 0,
+            whistleActive,
+            whistleRest
         }
     },
     mounted(){
@@ -67,7 +68,7 @@ export default{
                 }
 
                 this.paused = false
-                this.beep(this.activeSoundConfig)
+                this.whistleActive.play();
                 this.countDown = this.exerciseIntervall
                 for (var i = 0; i <= this.exerciseIntervall; i++) {
                     await this.sleep(second)
@@ -78,7 +79,8 @@ export default{
                 this.progress = Math.floor((this.workoutProgress/this.workoutLength)*100)
 
                 this.paused = true
-                this.beep(this.pauseSoundConfig)
+                this.whistleRest.play();
+
                 this.countDown = this.restInterval
                 for (var i = 0; i <= this.restInterval; i++) {
                     await this.sleep(second)
@@ -87,19 +89,6 @@ export default{
             }
             store.state.workout.finished = true
             this.$router.push('finished') 
-        },
-        beep(soundConfig) {
-            let oscillator = this.audioCtx.createOscillator()
-            let gainNode = this.audioCtx.createGain()
-            oscillator.connect(gainNode)
-            gainNode.connect(this.audioCtx.destination)
-            gainNode.gain.value = parseFloat(soundConfig[0])
-            oscillator.frequency.value = soundConfig[1]
-            oscillator.type = soundConfig[2]
-            oscillator.start()
-            setTimeout(function() {
-                oscillator.stop()
-            }, soundConfig[3])
         },
         sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms))
