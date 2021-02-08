@@ -57,7 +57,7 @@ export default{
     methods: {
         async runWorkout(exerciseList, index) {
             store.state.workout.finished = false
-            let second = 200
+            let second = 1000
 
             for(var prop in this.workout) {
                 this.currentExercise = exerciseList[index].name
@@ -68,7 +68,7 @@ export default{
                 }
 
                 this.paused = false
-                this.whistleActive.play();
+                this.whistleActive.play()
                 this.countDown = this.exerciseIntervall
                 for (var i = 0; i <= this.exerciseIntervall; i++) {
                     await this.sleep(second)
@@ -79,7 +79,7 @@ export default{
                 this.progress = Math.floor((this.workoutProgress/this.workoutLength)*100)
 
                 this.paused = true
-                this.whistleRest.play();
+                this.whistleRest.play()
 
                 this.countDown = this.restInterval
                 for (var i = 0; i <= this.restInterval; i++) {

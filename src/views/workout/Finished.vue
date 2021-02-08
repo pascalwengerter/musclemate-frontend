@@ -15,7 +15,7 @@ export default{
         if (store.state.workout.finished == false) {
             router.push({ path: '/error', replace: true })
         }
-        const cheerSound = new Audio(cheering);
+        const cheerSound = new Audio(cheering)
 
         return{
             cheerSound
