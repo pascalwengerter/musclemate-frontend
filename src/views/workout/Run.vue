@@ -32,8 +32,8 @@ export default{
             }
         }
         const countDown = ref(0)
-        const whistleActive = new Audio(whistleActiveSound);
-        const whistleRest = new Audio(whistleRestSound);
+        const whistleActive = new Audio(whistleActiveSound)
+        const whistleRest = new Audio(whistleRestSound)
 
         return{
             exerciseIntervall,
@@ -57,7 +57,7 @@ export default{
     methods: {
         async runWorkout(exerciseList, index) {
             store.state.workout.finished = false
-            let second = 1000
+            let second = 200
 
             for(var prop in this.workout) {
                 this.currentExercise = exerciseList[index].name
@@ -131,5 +131,5 @@ export default{
     }
     progress {
         @apply border-dark border-4;
-    }
+    }   
 </style>

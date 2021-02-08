@@ -8,12 +8,21 @@
 <script>
 import store from '../../store/store'
 import router from '../../router/index'
+import cheering from '../../assets/sounds/cheer.mp3'
 
 export default{
-    created() {
+    setup(){
         if (store.state.workout.finished == false) {
             router.push({ path: '/error', replace: true })
         }
+        const cheerSound = new Audio(cheering);
+
+        return{
+            cheerSound
+        }
+    },
+    mounted(){
+        this.cheerSound.play()
     }
 }
 </script>
