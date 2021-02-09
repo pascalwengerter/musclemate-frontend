@@ -1,12 +1,17 @@
 <template>
     <DarkLogo/>
-    <Card>
-        <h1>{{ countDown }}</h1>
-        <h2 v-show="paused">Next is: {{ nextExercise }}</h2>
-        <h2 v-show="!paused">{{ currentExercise }}</h2>
-        <h3>{{ workoutTitle }}</h3>
-        <progress id="workout" :value="progress" max="100"></progress>
-    </Card>
+    <WorkoutCardRun>
+        <div class="timer">
+            <h1>{{ countDown }}s</h1>
+            <h2 v-show="paused && !finished">Next up: {{ nextExercise }}</h2>
+            <h2 v-show="!paused && !finished">{{ currentExercise }}</h2>
+            <h2 v-show="finished">Final rest</h2>
+        </div>
+        <div class="instruction">
+            <h3>Workout: {{ workoutTitle }}</h3>
+            <progress id="workout" :value="progress" max="100"></progress>
+        </div>
+    </WorkoutCardRun>
 </template>
 
 <script>
@@ -15,6 +20,7 @@ import store from '../../store/store'
 import workouts from "../../workouts"
 import whistleActiveSound from "../../assets/sounds/whistle_2.mp3"
 import whistleRestSound from "../../assets/sounds/whistle.mp3"
+import WorkoutCardRun from "../../components/WorkoutCardRun.vue"
 
 export default{
     setup(){
@@ -49,10 +55,14 @@ export default{
             workoutLength,
             countDown,
             paused: false,
+            finished: false,
             progress: 0,
             whistleActive,
             whistleRest
         }
+    },
+    components: {
+        WorkoutCardRun
     },
     mounted(){
         this.runWorkout(this.workout, 0)
@@ -60,12 +70,12 @@ export default{
     methods: {
         async runWorkout(exerciseList, index) {
             store.state.workout.finished = false
-            let second = 1000
+            let second = 50
 
             for(var prop in this.workout) {
                 this.currentExercise = exerciseList[index].name
-                if (index +2 == this.workoutLength) {
-                    this.nextExercise = "Finito"
+                if (index +1 == this.workoutLength) {
+                    this.nextExercise = ""
                 } else {
                     this.nextExercise = exerciseList[index + 1].name
                 }
@@ -82,6 +92,10 @@ export default{
                 this.progress = Math.floor((this.workoutProgress/this.workoutLength)*100)
 
                 this.paused = true
+                if (index +1 == this.workoutLength) {
+                    this.finished = true
+                }
+
                 this.whistleRest.play()
                 this.countDown = this.restInterval
                 for (var i = 0; i <= this.restInterval; i++) {
@@ -100,12 +114,33 @@ export default{
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
+    .timer {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        @apply bg-gradient-to-r from-secondary to-primary py-8 text-center;
+    }
+    .timer :is(h1,h2) {
+        color: white !important;
+    }
+    .instruction {
+        @apply py-8 px-4 text-center;
+    }
+    h1 {
+        font-size: 5rem !important;
+        margin: 3rem 0;
+    }
+    h2 {
+        @apply text-2xl;
+    }
+    h3 {
+        @apply text-xl;
+    }
     progress[value] {
         -webkit-appearance: none;
         appearance: none;
         width: 250px;
-        height: 20px;
+        height: 30px;
     }
     progress[value]::-webkit-progress-bar {
         background-color: #eee;
@@ -116,7 +151,7 @@ export default{
         background-image:
             -webkit-linear-gradient(left, #183A4B, #183A4B);
         border-radius: 0; 
-        background-size: 35px 20px, 100% 100%, 100% 100%;
+        background-size: 35px 30px, 100% 100%, 100% 100%;
     }
 
     progress[value] {
@@ -124,7 +159,7 @@ export default{
             -moz-appearance: none;
                 appearance: none;
         width: 250px;
-        height: 20px;
+        height: 30px;
     }
     progress[value]::-moz-progress-bar { 
         background-image:
@@ -133,6 +168,6 @@ export default{
         background-size: 35px 20px, 100% 100%, 100% 100%; 
     }
     progress {
-        @apply border-dark border-4;
+        @apply border-dark border-4 mt-8;
     }   
 </style>

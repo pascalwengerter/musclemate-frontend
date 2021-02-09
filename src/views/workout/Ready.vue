@@ -1,11 +1,13 @@
 <template>
     <DarkLogo/>
     <BackButton/>
-    <Card>
-        <h2 class="text-2xl mb-6">Ready?</h2>
-        <p>Make sure you turned on your speakers.</p>
-        <router-link class="btn btn-reverse" to="/workout/run">Go</router-link>
-    </Card>
+    <WorkoutCard>
+        <h1 class="mb-8 text-center">Ready?</h1>
+        <p class="text-center">Make sure your speakers are turned on.</p>
+        <div class="text-center py-8">
+            <router-link class="btn btn-reverse" to="/workout/run">Go</router-link>
+        </div>
+    </WorkoutCard>
 </template>
 
 <script>

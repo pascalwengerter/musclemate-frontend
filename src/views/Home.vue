@@ -1,18 +1,15 @@
 <template>
-  <div class="flex flex-col min-h-full justify-center items-center">
-    <img class="logo-img" alt="MuscleMate Logo" src="../assets/images/MuscleMate_logo_1.png" />
-    <h1 class="">MuscleMate</h1>
-
-      <div id="nav">
-        <router-link class="btn btn-gradient" to="/workout/start">Workout now</router-link>
-        <router-link class="btn btn-reverse" to="/pro">Go pro</router-link>
-    </div>
+  <div class="mt-8 md:mt-6 flex flex-col justify-center items-center">
+    <img class="home-logo my-4 md:my-6 block w-4/5 md:w-3/5" alt="MuscleMate Logo" src="../assets/images/home_logo.png" />
+    <nav>
+      <router-link class="btn btn-gradient block my-5" to="/workout/start">Workout now</router-link>
+      <router-link class="btn btn-reverse block" to="/pro">Go pro</router-link>
+    </nav>
   </div>
-
-  <div id="nav-2" class="p-4">
-      <router-link class="my-1 block" to="/about">About</router-link>
-      <router-link class="my-1 block" to="/legal">ToC &amp; Legal</router-link>
-      <router-link class="my-1 block" to="/privacy">Privacy Policy</router-link>
-      <router-link class="my-1 block" to="/pro">Go pro</router-link>
-  </div>
+  <nav id="nav-2" class="p-4 md:p-6 mt-12 mb-3 md:my-6 text-center md:text-left uppercase">
+      <router-link to="/about">About</router-link>
+      <router-link to="/terms-and-conditions">Terms &amp; Conditions</router-link>
+      <router-link to="/privacy-and-legal">Privacy &amp; Legal</router-link>
+      <router-link to="/pro">Go pro</router-link>
+  </nav>
 </template>

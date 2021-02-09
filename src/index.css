@@ -4,16 +4,21 @@
 
 @font-face {
     font-family: "Poppins";
-    src: local("Poppins"),   url(./assets/fonts/Poppins/Poppins-Bold.ttf) format("truetype");
+    src: local("Poppins"), url(./assets/fonts/Poppins/Poppins-Bold.ttf) format("truetype");
 }
 
 @font-face {
     font-family: "Hind";
-    src: local("Hind"),   url(./assets/fonts/Hind/Hind-Regular.ttf) format("truetype");
+    src: local("Hind"), url(./assets/fonts/Hind/Hind-Regular.ttf) format("truetype");
+}
+
+:root {
+    --body-white: #E5E5E5;
+    --mm-dark-grey: #183A4B;
 }
 
 html, body {
-    background-color: #E5E5E5;
+    background-color: var(--body-white);
     font-family: Hind, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -22,39 +27,30 @@ html, body {
 #app h1,h2,h3,h4,h5,h6,.btn {
     font-family: Poppins, sans-serif;
     font-weight: bold;
-    color: #183A4B;
-}
-
-h1,h2 {
-    padding-top: 30px;
+    color: var(--mm-dark-grey);
 }
 
 h1 {
-    @apply text-6xl md:text-8xl tracking-tight;
-}
-
-#nav {
-    text-transform: uppercase;
-}
-
-.logo-img {
-    width: 3em;
-    height: 3em;
-    display: inline-block;
+    @apply text-2xl md:text-4xl tracking-tight mb-4;
 }
 
 .btn {
-    display: inline-block;
+    text-transform: uppercase;
     @apply font-bold text-center rounded-2xl;
 }
 
 .btn-gradient {
-    @apply m-5 text-white py-4 px-6 bg-gradient-to-r from-secondary to-primary;
+    @apply text-white py-4 px-6 bg-gradient-to-r from-secondary to-primary;
 }
 
 .btn-reverse {
     background: transparent;
-    @apply m-5 text-dark border-dark border-4 py-3 px-5;
+    @apply text-dark border-dark border-4 py-3 px-5;
+}
+
+.btn-dark {
+    background: var(--mm-dark-grey);
+    @apply text-white border-dark border-4 py-3 px-5
 }
 
 .logo-img-dark {
@@ -65,9 +61,63 @@ h1 {
 }
 
 .card {
-    background-color: #fff;
     margin-top: 3rem;
-    padding: 1.5rem 3rem;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.16), 0px 2px 4px rgba(0, 0, 0, 0.12), 0px 1px 8px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
+}
+
+.workoutcard {
+    background-color: #fff;
+    padding: 1.5rem 3rem;
+}
+
+.workoutcard-run {
+    background-color: #fff;
+}
+
+.procard {
+    background-color: #000;
+    padding: 1.5rem 3rem;
+    @apply text-white;
+}
+.procard h1 {
+    color: white !important;
+}
+
+.procard h1 span {
+    background: red;
+    @apply text-lg md:text-xl p-2 rounded-xl;
+    line-height: 2.5rem;
+    vertical-align: middle;
+}
+
+footer p span {
+    @apply my-3 float-none text-center block;
+}
+
+.lba a, .inline-link {
+    background: -webkit-linear-gradient(#6DEAA7, #43CDEC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lba:hover a, .lba:focus a {
+    text-decoration: underline;
+}
+
+#nav-2 a {
+    @apply my-1 block;
+}
+
+input[type=checkbox] {
+    background-color: white;
+    width: 2rem;
+    height: 2rem;
+}
+
+input[type=email] {
+    background-color: white;
+    color: var(--mm-dark-grey);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
 }

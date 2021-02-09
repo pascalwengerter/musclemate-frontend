@@ -1,0 +1,15 @@
+<template>
+    <BackButton/>
+    <DarkLogo/>
+    <WorkoutCard>
+        <h1>About</h1>
+        <p>In the era of tracking- and advertisement-heavy workout apps, this very basic solution provides an antithesis that you can use on any (modern) device with an up-to-date web browser.</p>
+        <p>It had originally been created in early 2019 and since then was iterated a couple of times by <a href="https://pascal.rocks" target="_blank" class="inline-link">Pascal Wengerter</a> and friends.</p>
+        <p>The term <strong><i>mate</i></strong> doesn't assume a gender - it's borrowed from the Australian slang for "buddy". Any individual is invited to use this application.</p>
+        <p>The source code for this application is open source and can be found <a href="https://github.com/pascalwengerter/musclemate-frontend" target="_blank" class="inline-link">on GitHub</a>.</p>
+        <p>Any feedback? Great, feel free to drop us a line at <a href="mailto:gainz@musclemate.app" target="_blank" class="inline-link">gainz@musclemate.app</a>.</p>
+        <p class="mt-12">
+            The biceps icon was made by <a href="http://delapouite.com/" target="_blank" class="inline-link">Delapouite</a>, available on <a href="https://game-icons.net" target="_blank" class="inline-link">https://game-icons.net</a>.
+        </p>
+    </WorkoutCard>
+</template>

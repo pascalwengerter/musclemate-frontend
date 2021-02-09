@@ -1,14 +1,12 @@
 <template>
     <DarkLogo/>
     <BackButton/>
-    <Card>
-        <h1>MuscleMate Pro 
-            <span>coming soon</span>
-        </h1>
+    <ProCard>
+        <h1>Register for MuscleMate Pro</h1>
         <form action="">
-            <input type="email" name="email" id="email"><br/>
-            <input type="checkbox" name="consent" id="consent"><label for="consent">I agree to xyz</label>
-            <input type="submit" value="Send">
+            <input class="mx-auto block my-8" type="email" name="email" id="email" placeholder="Your email">
+            <p class="my-8">We will only store your email to notify you once MuscleMate Pro is available.</p>
+            <input class="btn btn-gradient block mx-auto" type="submit" value="Send">
         </form>
-    </Card>
+    </ProCard>
 </template>

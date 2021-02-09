@@ -1,12 +1,12 @@
 <template>
     <DarkLogo/>
     <BackButton/>
-    <Card>
+    <ProCard>
         <h1>MuscleMate Pro 
             <span>coming soon</span>
         </h1>
-        <p>With MuscleMate Pro you will be able to customize workouts and also create & save your own workout sessions.</p>
-        <p>You can signup for our newsletter to stay up to date and to be the first to use pro.</p>
-        <router-link class="btn btn-gradient" to="/pro/signup">Sign up</router-link>
-    </Card>
+        <p>With MuscleMate Pro you will be able to customize workouts and also create &amp; save your own workout sessions.</p>
+        <p>You can leave your email and be amongst the first ones to become notified once it's available.</p>
+        <router-link class="btn btn-gradient mx-auto my-8 table" to="/pro/signup">Sign up</router-link>
+    </ProCard>
 </template>
