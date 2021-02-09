@@ -70,7 +70,7 @@ export default{
     methods: {
         async runWorkout(exerciseList, index) {
             store.state.workout.finished = false
-            let second = 50
+            let second = 1000
 
             for(var prop in this.workout) {
                 this.currentExercise = exerciseList[index].name
