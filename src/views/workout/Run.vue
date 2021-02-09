@@ -1,9 +1,12 @@
 <template>
-    <h1>{{ countDown }}</h1>
-    <h2 v-show="paused">Next is: {{ nextExercise }}</h2>
-    <h2 v-show="!paused">{{ currentExercise }}</h2>
-    <h3>{{ workoutTitle }}</h3>
-    <progress id="workout" :value="progress" max="100"></progress> 
+    <DarkLogo/>
+    <Card>
+        <h1>{{ countDown }}</h1>
+        <h2 v-show="paused">Next is: {{ nextExercise }}</h2>
+        <h2 v-show="!paused">{{ currentExercise }}</h2>
+        <h3>{{ workoutTitle }}</h3>
+        <progress id="workout" :value="progress" max="100"></progress>
+    </Card>
 </template>
 
 <script>
@@ -80,12 +83,12 @@ export default{
 
                 this.paused = true
                 this.whistleRest.play()
-
                 this.countDown = this.restInterval
                 for (var i = 0; i <= this.restInterval; i++) {
                     await this.sleep(second)
                     this.countDown -= 1
                 }
+                index++
             }
             store.state.workout.finished = true
             this.$router.push('finished') 

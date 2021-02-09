@@ -1,8 +1,10 @@
 <template>
     <DarkLogo/>
-    <h1>Well done!</h1>
-    <router-link class="btn btn-reverse" to="/workout/run">Another round</router-link>
-    <router-link class="btn btn-gradient" to="/">Back home</router-link>
+    <Card>
+        <h1>Well done!</h1>
+        <router-link class="btn btn-reverse" to="/workout/run">Another round</router-link>
+        <router-link class="btn btn-gradient" to="/">Back home</router-link>
+    </Card>
 </template>
 
 <script>

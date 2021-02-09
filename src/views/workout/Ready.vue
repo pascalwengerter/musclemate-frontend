@@ -1,15 +1,14 @@
 <template>
     <DarkLogo/>
     <BackButton/>
-    <h2>Ready?</h2>
-    <p>Make sure you turned on your speakers.</p>
-    <router-link class="btn btn-gradient" to="/workout/run">Go</router-link>
+    <Card>
+        <h2 class="text-2xl mb-6">Ready?</h2>
+        <p>Make sure you turned on your speakers.</p>
+        <router-link class="btn btn-reverse" to="/workout/run">Go</router-link>
+    </Card>
 </template>
 
 <script>
-import BackButton from "../../components/BackButton.vue"
-import DarkLogo from "../../components/DarkLogo.vue"
-
 import store from '../../store/store'
 
 export default{
@@ -21,5 +20,4 @@ export default{
         }
     }
 }
-
 </script>
