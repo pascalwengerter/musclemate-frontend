@@ -75,22 +75,6 @@ h1 {
     background-color: #fff;
 }
 
-.procard {
-    background-color: #000;
-    padding: 1.5rem 3rem;
-    @apply text-white;
-}
-.procard h1 {
-    color: white !important;
-}
-
-.procard h1 span {
-    background: red;
-    @apply text-lg md:text-xl p-2 rounded-xl;
-    line-height: 2.5rem;
-    vertical-align: middle;
-}
-
 footer p span {
     @apply my-3 float-none text-center block;
 }

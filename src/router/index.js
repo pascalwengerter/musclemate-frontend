@@ -6,8 +6,6 @@ import Custom from "../views/workout/Custom.vue"
 import Ready from "../views/workout/Ready.vue"
 import Run from "../views/workout/Run.vue"
 import Finished from "../views/workout/Finished.vue"
-import ComingSoon from "../views/pro/ComingSoon.vue"
-import SignUp from "../views/pro/SignUp.vue"
 import About from "../views/static/About.vue"
 import ToC from "../views/static/ToC.vue"
 import Privacy from "../views/static/Privacy.vue"
@@ -21,8 +19,6 @@ const routes = [
   { path: "/workout/ready", name: "Ready", component: Ready, },
   { path: "/workout/run", name: "Run", component: Run, },
   { path: "/workout/finished", name: "Finished", component: Finished, },
-  { path: "/pro", name: "Pro", component: ComingSoon, },
-  { path: "/pro/signup", name: "SignUp", component: SignUp, },
   { path: "/about", name: "About", component: About, },
   { path: "/terms-and-conditions", name: "Toc", component: ToC, },
   { path: "/privacy-and-legal", name: "Privacy", component: Privacy, },
