@@ -10,7 +10,7 @@ To start the development server, run
 yarn dev
 ```
 
-Tests are using nightwatch, so you can run
+Currently there is only an example acceptance test implemented, which you can run via
 ```sh
-npx nightwatch
+yarn test:ui
 ```
