@@ -55,11 +55,11 @@
             "name": "Squats"
         },
         {
-            "bothSides": false,
+            "bothSides": true,
             "name": "Pistol Squat (left)"
         },
         {
-            "bothSides": false,
+            "bothSides": true,
             "name": "Pistol Squat (right)"
         },
         {
@@ -71,11 +71,11 @@
             "name": "Squats"
         },
         {
-            "bothSides": false,
+            "bothSides": true,
             "name": "Pistol Squat (left)"
         },
         {
-            "bothSides": false,
+            "bothSides": true,
             "name": "Pistol Squat (right)"
         },
         {
