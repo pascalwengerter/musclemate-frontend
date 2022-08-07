@@ -1,0 +1,86 @@
+{
+    "Classic Workout": [
+        {
+            "bothSides": false,
+            "name": "Jumping jacks"
+        },
+        {
+            "bothSides": false,
+            "name": "Wall sit"
+        },
+        {
+            "bothSides": false,
+            "name": "Sit-ups"
+        },
+        {
+            "bothSides": false,
+            "name": "Pushups"
+        },
+        {
+            "bothSides": false,
+            "name": "Bicycle crunches"
+        },
+        {
+            "bothSides": false,
+            "name": "Squats"
+        },
+        {
+            "bothSides": false,
+            "name": "Superman"
+        },
+        {
+            "bothSides": false,
+            "name": "Plank"
+        },
+        {
+            "bothSides": false,
+            "name": "Lunges"
+        },
+        {
+            "bothSides": false,
+            "name": "Twisted Pushups"
+        },
+        {
+            "bothSides": true,
+            "name": "Lateral Plank (left)"
+        },
+        {
+            "bothSides": true,
+            "name": "Lateral Plank (right)"
+        }
+    ],
+    "Butt Buster": [
+        {
+            "bothSides": false,
+            "name": "Squats"
+        },
+        {
+            "bothSides": false,
+            "name": "Pistol Squat (left)"
+        },
+        {
+            "bothSides": false,
+            "name": "Pistol Squat (right)"
+        },
+        {
+            "bothSides": false,
+            "name": "Lunges"
+        },
+        {
+            "bothSides": false,
+            "name": "Squats"
+        },
+        {
+            "bothSides": false,
+            "name": "Pistol Squat (left)"
+        },
+        {
+            "bothSides": false,
+            "name": "Pistol Squat (right)"
+        },
+        {
+            "bothSides": false,
+            "name": "Lunges"
+        }
+    ]
+}

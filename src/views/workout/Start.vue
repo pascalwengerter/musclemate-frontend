@@ -1,12 +1,45 @@
 <template>
-    <DarkLogo/>
-    <BackButton/>
-    <WorkoutCard>
-        <h1>Basic Workout</h1>
-        <p>This is a ready-to-go workout from MuscleMate. 12 exercises, targeting the whole body.</p>
-        <router-link class="btn btn-gradient w-1/2 mx-auto block mt-3 mb-8" to="/workout/timer">Start Basic</router-link>
-        <h1>Create your own</h1>
-        <p>You can customize the basic exercise list or create a custom workout.</p>
-        <router-link class="btn btn-gradient w-1/2 mx-auto block mt-3 mb-8" to="/workout/custom">Create</router-link>
-    </WorkoutCard>
+  <DarkLogo />
+  <BackButton />
+  <WorkoutCard>
+    <h1>Basic Workout</h1>
+    <p>
+      Choose a ready-made workout for the most convenient way of exercising.
+    </p>
+    <button
+      v-for="(workoutname, workout) in workouts"
+      :key="workoutname"
+      class="btn btn-gradient w-1/2 mx-auto block mt-3 mb-8"
+      @click="chooseExerciseAndAdvance(workout)"
+    >
+      Start {{ workout }}
+    </button>
+    <h1>Custom workout</h1>
+    <p>Add your own exercises for a personalized training experience.</p>
+    <router-link
+      class="btn btn-gradient w-1/2 mx-auto block mt-3 mb-8"
+      to="/workout/custom"
+      >Create</router-link
+    >
+  </WorkoutCard>
 </template>
+
+<script>
+import { mapMutations } from "vuex";
+import workouts from "../../workouts.json";
+
+export default {
+  setup() {
+    return {
+      workouts,
+    };
+  },
+  methods: {
+    ...mapMutations(["setExerciseName"]),
+    chooseExerciseAndAdvance(workoutname) {
+      this.setExerciseName(workoutname);
+      this.$router.push({ path: "/workout/timer" });
+    },
+  },
+};
+</script>
