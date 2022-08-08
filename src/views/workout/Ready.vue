@@ -9,16 +9,3 @@
     </div>
   </WorkoutCard>
 </template>
-
-<script>
-import store from "../../store/store";
-
-export default {
-  setup() {
-    const data = store.state.workout.duration;
-    return {
-      data,
-    };
-  },
-};
-</script>
