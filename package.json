@@ -2,9 +2,9 @@
   "name": "musclemate",
   "version": "0.0.0",
   "scripts": {
+    "build": "vite build",
     "dev": "vite",
-    "test:ui": "npx nightwatch",
-    "build": "vite build"
+    "test:ui": "npx nightwatch"
   },
   "dependencies": {
     "vue": "^3.0.5",
