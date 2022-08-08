@@ -33,9 +33,9 @@ export default {
     const workoutProgress = ref(0);
     let workoutLength = 0;
     for (var prop in workout) {
-      if (workout[prop].bothSides == false) {
-        ++workoutLength;
-      }
+      // if (workout[prop].bothSides == false) {
+      ++workoutLength;
+      // }
     }
     const countDown = ref(0);
     const whistleActive = new Audio(whistleActiveSound);
