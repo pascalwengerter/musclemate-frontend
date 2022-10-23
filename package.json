@@ -20,6 +20,6 @@
     "postcss": "^8.2.10",
     "selenium-server": "^3.141.59",
     "tailwindcss": "^2.2.16",
-    "vite": "^2.6.7"
+    "vite": "^2.9.13"
   }
 }
