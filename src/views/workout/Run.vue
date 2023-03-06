@@ -34,10 +34,11 @@ export default {
     const restInterval = store.state.workout.duration.rest;
     const whistleActive = new Audio(whistleActiveSound);
     const whistleRest = new Audio(whistleRestSound);
+    const workoutProgress = ref(0);
+
+    const workoutTitle = store.state.workout.name;
     const workout = workouts[workoutTitle];
     const workoutLength = workout.length;
-    const workoutProgress = ref(0);
-    const workoutTitle = store.state.workout.name;
 
     const subHeading = computed(() => {
       if (unref(paused) && !unref(finished)) {
