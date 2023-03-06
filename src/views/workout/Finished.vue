@@ -13,24 +13,18 @@
   </WorkoutCard>
 </template>
 
-<script>
+<script setup>
+import { onMounted } from "vue";
 import store from "../../store/store";
 import router from "../../router/index";
 import cheering from "../../assets/sounds/cheer.mp3";
 
-export default {
-  setup() {
-    if (store.state.workout.finished == false) {
-      router.push({ path: "/error", replace: true });
-    }
-    const cheerSound = new Audio(cheering);
+if (store.state.workout.finished == false) {
+  router.push({ path: "/error", replace: true });
+}
+const cheerSound = new Audio(cheering);
 
-    return {
-      cheerSound,
-    };
-  },
-  mounted() {
-    this.cheerSound.play();
-  },
-};
+onMounted(() => {
+  cheerSound.play();
+});
 </script>
