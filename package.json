@@ -4,8 +4,7 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "lint": "eslint 'src/**/*.{js,ts,vue}'",
-    "test:ui": "npx nightwatch"
+    "lint": "eslint 'src/**/*.{js,ts,vue}'"
   },
   "dependencies": {
     "vue": "^3.2.47",
