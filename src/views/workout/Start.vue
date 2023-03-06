@@ -19,8 +19,9 @@
     <router-link
       class="btn btn-gradient w-1/2 mx-auto block mt-3 mb-8"
       to="/workout/custom"
-      >Create</router-link
     >
+      Create
+    </router-link>
   </WorkoutCard>
 </template>
 

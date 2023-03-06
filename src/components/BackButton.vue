@@ -1,3 +1,3 @@
 <template>
-  <a @click="$router.go(-1)" class="btn btn-reverse">Back</a>
+  <a class="btn btn-reverse" @click="$router.go(-1)"> Back </a>
 </template>
