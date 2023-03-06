@@ -2,7 +2,7 @@
   <DarkLogo />
   <BackButton />
   <WorkoutCard>
-    <h1 class="mb-8">Create your MuscleMate</h1>
+    <h1 class="mb-8">Configure your workout</h1>
     <p>
       Exercise time in seconds:
       <label for="exercise-time">{{ data.active }} Seconds</label>
@@ -33,7 +33,12 @@
       You can choose your exercises in the next step. Click DONE to continue.
     </p>
     <div class="text-center py-8">
-      <router-link class="btn btn-dark" to="/workout/ready"> Done </router-link>
+      <router-link
+        class="btn text-white border-dark bg-dark border-4 py-3 px-5"
+        to="/workout/ready"
+      >
+        Done
+      </router-link>
     </div>
   </WorkoutCard>
 </template>
