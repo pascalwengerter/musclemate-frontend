@@ -18,7 +18,7 @@
   "[javascript]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
-  "[json]": {
+  "[typescript]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   }
 }
