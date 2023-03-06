@@ -36,11 +36,11 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["setExerciseName"]),
+    ...mapMutations(["setWorkoutName"]),
     chooseExerciseAndAdvance() {
       // push all checkbox'ed exercies to exercises var
       // push all custom input'ed exercies to exercises var
-      this.setExerciseName("Custom");
+      this.setWorkoutName("Custom");
       this.setExercises(this.exercises);
       this.$router.push({ path: "/workout/timer" });
     },

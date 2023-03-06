@@ -13,7 +13,7 @@ export const store = createStore({
     },
   },
   mutations: {
-    setExerciseName(state, name) {
+    setWorkoutName(state, name) {
       state.workout.name = name;
     },
   },

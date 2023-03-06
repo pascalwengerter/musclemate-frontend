@@ -36,9 +36,9 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["setExerciseName"]),
+    ...mapMutations(["setWorkoutName"]),
     chooseExerciseAndAdvance(workoutname) {
-      this.setExerciseName(workoutname);
+      this.setWorkoutName(workoutname);
       this.$router.push({ path: "/workout/timer" });
     },
   },
