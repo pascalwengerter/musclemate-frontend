@@ -6,7 +6,7 @@
     <h2>Legal</h2>
     <p>
       Pascal Wengerter<br />
-      Am Messehazs 23<br />
+      Am Messehaus 23<br />
       90489 Nuremberg
     </p>
     <p class="my-4">Mail: gainz@musclemate.app</p>

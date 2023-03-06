@@ -4,12 +4,14 @@
     <div class="timer">
       <h1>{{ countDown }}s</h1>
       <h2 v-show="paused && !finished">Next up: {{ nextExercise }}</h2>
-      <h2 v-show="!paused && !finished">{{ currentExercise }}</h2>
+      <h2 v-show="!paused && !finished">
+        {{ currentExercise }}
+      </h2>
       <h2 v-show="finished">Final rest</h2>
     </div>
     <div class="instruction">
       <h3>Workout: {{ workoutTitle }}</h3>
-      <progress id="workout" :value="progress" max="100"></progress>
+      <progress id="workout" :value="progress" max="100" />
     </div>
   </WorkoutCardRun>
 </template>
@@ -23,6 +25,9 @@ import whistleRestSound from "../../assets/sounds/whistle.mp3";
 import WorkoutCardRun from "../../components/WorkoutCardRun.vue";
 
 export default {
+  components: {
+    WorkoutCardRun,
+  },
   setup() {
     const exerciseIntervall = store.state.workout.duration.active;
     const restInterval = store.state.workout.duration.rest;
@@ -31,12 +36,7 @@ export default {
     const currentExercise = ref("");
     const nextExercise = ref("");
     const workoutProgress = ref(0);
-    let workoutLength = 0;
-    for (var prop in workout) {
-      // if (workout[prop].bothSides == false) {
-      ++workoutLength;
-      // }
-    }
+    const workoutLength = workout.length;
     const countDown = ref(0);
     const whistleActive = new Audio(whistleActiveSound);
     const whistleRest = new Audio(whistleRestSound);
@@ -58,9 +58,6 @@ export default {
       whistleRest,
     };
   },
-  components: {
-    WorkoutCardRun,
-  },
   mounted() {
     this.runWorkout(this.workout, 0);
   },
@@ -69,6 +66,7 @@ export default {
       store.state.workout.finished = false;
       let second = 1000;
 
+      // eslint-disable-next-line no-unused-vars
       for (var prop in this.workout) {
         this.currentExercise = exerciseList[index].name;
         if (index + 1 == this.workoutLength) {
@@ -97,7 +95,7 @@ export default {
 
         this.whistleRest.play();
         this.countDown = this.restInterval;
-        for (var i = 0; i <= this.restInterval; i++) {
+        for (var j = 0; j <= this.restInterval; j++) {
           await this.sleep(second);
           this.countDown -= 1;
         }
