@@ -15,10 +15,16 @@
     id="nav-2"
     class="p-4 md:p-6 mt-12 mb-3 md:my-6 text-center md:text-left uppercase"
   >
-    <router-link to="/about"> About </router-link>
-    <router-link to="/terms-and-conditions">
-      Terms &amp; Conditions
-    </router-link>
-    <router-link to="/privacy-and-legal"> Privacy &amp; Legal </router-link>
+    <ul>
+      <li>
+        <router-link to="/about">About</router-link>
+      </li>
+      <li>
+        <router-link to="/terms-and-conditions">Terms & Conditions</router-link>
+      </li>
+      <li>
+        <router-link to="/privacy-and-legal">Privacy & Legal</router-link>
+      </li>
+    </ul>
   </nav>
 </template>

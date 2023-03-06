@@ -2,7 +2,7 @@
   <BackButton />
   <DarkLogo />
   <WorkoutCard>
-    <h1>Privacy &amp; Legal</h1>
+    <h1>Privacy & Legal</h1>
     <h2>Legal</h2>
     <p>
       Pascal Wengerter<br />
