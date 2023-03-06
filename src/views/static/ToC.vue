@@ -2,7 +2,7 @@
   <BackButton />
   <DarkLogo />
   <WorkoutCard>
-    <h1>Terms &amp; Conditions</h1>
+    <h1>Terms & Conditions</h1>
     <p>
       By accessing or using this site, you agree to be bound by these Terms of
       Service.

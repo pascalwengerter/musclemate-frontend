@@ -3,11 +3,7 @@
   <WorkoutCardRun>
     <div class="timer">
       <h1>{{ countDown }}s</h1>
-      <h2 v-show="paused && !finished">Next up: {{ nextExercise }}</h2>
-      <h2 v-show="!paused && !finished">
-        {{ currentExercise }}
-      </h2>
-      <h2 v-show="finished">Final rest</h2>
+      <h2>{{ subHeading }}</h2>
     </div>
     <div class="instruction">
       <h3>Workout: {{ workoutTitle }}</h3>
@@ -17,7 +13,7 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { computed, ref, unref } from "vue";
 import store from "../../store/store";
 import workouts from "../../workouts.json";
 import whistleActiveSound from "../../assets/sounds/whistle_2.mp3";
@@ -29,33 +25,54 @@ export default {
     WorkoutCardRun,
   },
   setup() {
-    const exerciseIntervall = store.state.workout.duration.active;
-    const restInterval = store.state.workout.duration.rest;
-    const workoutTitle = store.state.workout.name;
-    const workout = workouts[workoutTitle];
-    const currentExercise = ref("");
-    const nextExercise = ref("");
-    const workoutProgress = ref(0);
-    const workoutLength = workout.length;
     const countDown = ref(0);
+    const currentExercise = ref("");
+    const exerciseIntervall = store.state.workout.duration.active;
+    const finished = ref(false);
+    const nextExercise = ref("");
+    const paused = ref(false);
+    const restInterval = store.state.workout.duration.rest;
     const whistleActive = new Audio(whistleActiveSound);
     const whistleRest = new Audio(whistleRestSound);
+    const workoutProgress = ref(0);
+
+    const workoutTitle = store.state.workout.name;
+    const workout = workouts[workoutTitle];
+    const workoutLength = workout.length;
+
+    const subHeading = computed(() => {
+      if (unref(paused) && !unref(finished)) {
+        return `Next up: ${nextExercise.value}`;
+      } else if (!unref(paused) && !unref(finished)) {
+        return currentExercise.value;
+      } else {
+        return "Final rest";
+      }
+    });
+
+    const sleepOneSecond = () => {
+      // Reduce below to 1 for dev purposes
+      const ms = 1000;
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    };
 
     return {
-      exerciseIntervall,
-      restInterval,
-      workoutTitle,
-      workout,
-      currentExercise,
-      nextExercise,
-      workoutProgress,
-      workoutLength,
       countDown,
-      paused: false,
-      finished: false,
+      currentExercise,
+      exerciseIntervall,
+      finished,
+      nextExercise,
+      paused,
       progress: 0,
+      restInterval,
+      sleepOneSecond,
+      subHeading,
       whistleActive,
       whistleRest,
+      workout,
+      workoutLength,
+      workoutProgress,
+      workoutTitle,
     };
   },
   mounted() {
@@ -64,7 +81,6 @@ export default {
   methods: {
     async runWorkout(exerciseList, index) {
       store.state.workout.finished = false;
-      let second = 1000;
 
       // eslint-disable-next-line no-unused-vars
       for (var prop in this.workout) {
@@ -79,7 +95,7 @@ export default {
         this.whistleActive.play();
         this.countDown = this.exerciseIntervall;
         for (var i = 0; i <= this.exerciseIntervall; i++) {
-          await this.sleep(second);
+          await this.sleepOneSecond();
           this.countDown -= 1;
         }
 
@@ -96,16 +112,13 @@ export default {
         this.whistleRest.play();
         this.countDown = this.restInterval;
         for (var j = 0; j <= this.restInterval; j++) {
-          await this.sleep(second);
+          await this.sleepOneSecond();
           this.countDown -= 1;
         }
         index++;
       }
       store.state.workout.finished = true;
       this.$router.push("finished");
-    },
-    sleep(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
     },
   },
 };
