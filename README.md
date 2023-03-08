@@ -13,9 +13,3 @@ yarn dev
 ```
 
 and then visit [http://localhost:5173/](http://localhost:5173/).
-
-Currently there is only an example acceptance test implemented, which you can run via
-
-```sh
-yarn test:ui
-```
