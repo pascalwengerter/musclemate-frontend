@@ -1,86 +1,115 @@
 {
-    "Classic Workout": [
+    "BJJ Mobility Warm Up Routine": [
         {
-            "bothSides": false,
-            "name": "Jumping jacks"
+            "bothSides": false,                                          
+            "name": "1. SPHINX WITH HEAD NODS & TURNS"
         },
         {
             "bothSides": false,
-            "name": "Wall sit"
+            "name": "2. DIVE THRU FROM CHILD'S POSE"
         },
         {
             "bothSides": false,
-            "name": "Sit-ups"
+            "name": "3. SCORPION FROM T-POSITION"
         },
         {
             "bothSides": false,
-            "name": "Pushups"
+            "name": "4. SCORPION TO SEATED POSITION"
         },
         {
             "bothSides": false,
-            "name": "Bicycle crunches"
+            "name": "5. FROG STRETCH WITH PRYING"
         },
         {
             "bothSides": false,
-            "name": "Squats"
+            "name": "6. SHOULDER BRIDGE TO TURN TO SCORPION"
         },
         {
             "bothSides": false,
-            "name": "Superman"
+            "name": "7. BRIDGE TO LEG THREAD TO CHILD'S POSE"
         },
         {
             "bothSides": false,
-            "name": "Plank"
+            "name": "8. TACTICAL SIT-UP TO STAND-UP IN BASE"
         },
         {
             "bothSides": false,
-            "name": "Lunges"
+            "name": "9. SPINAL ROCKING"
         },
         {
             "bothSides": false,
-            "name": "Twisted Pushups"
+            "name": "10. SQUAT PRYING"
         },
         {
             "bothSides": true,
-            "name": "Lateral Plank (left)"
+            "name": "11. BEAR SQUATS"
         },
         {
             "bothSides": true,
-            "name": "Lateral Plank (right)"
+            "name": "12. DOUBLE SHIN ROLLS"
+        },
+        {
+            "bothSides": true,
+            "name": "13. SHIN BOX TO SINGLE SHIN ROLL"
+        },
+        {
+            "bothSides": true,
+            "name": "14. KNEE CHANGE TO TRIANGLE SIT"
+        },
+        {
+            "bothSides": true,
+            "name": "15. FORWARD & BACKWARD ROLLS"
         }
     ],
-    "Butt Buster": [
+    "Yoga Cool Down Routine": [
         {
             "bothSides": false,
-            "name": "Squats"
+            "name": "1. Split stretch side to side ( 3 breaths per side)"
         },
         {
             "bothSides": true,
-            "name": "Pistol Squat (left)"
+            "name": "2. Feet forward, head to knees"
         },
         {
             "bothSides": true,
-            "name": "Pistol Squat (right)"
+            "name": "3. Hip flexor and shoulder stretch "
         },
         {
             "bothSides": false,
-            "name": "Lunges"
+            "name": "4. Sit on toes and interlace hands behind back "
         },
         {
             "bothSides": false,
-            "name": "Squats"
+            "name": "5. Squat, hands behind head"
         },
         {
             "bothSides": true,
-            "name": "Pistol Squat (left)"
+            "name": "6. Omoplata hip stretch (with hands)"
         },
         {
             "bothSides": true,
-            "name": "Pistol Squat (right)"
+            "name": "7. Omoplata hip stretch (with knuckles)"
         },
         {
             "bothSides": false,
-            "name": "Lunges"
+            "name": "8. Belt stretch freestyle"
+        },
+        {
+            "bothSides": true,
+            "name": "9. Belt stretch Kimura, Americana"
+        },
+        {
+            "bothSides": true,
+            "name": "10. Knees to Side on right Side"
+        },
+        {
+            "bothSides": true,
+            "name": "11. Knees to Side on left Side"
+        },
+        {
+            "bothSides": true,
+            "name": "12. Lay on Back and relax"
         }
+        
     ]
 }

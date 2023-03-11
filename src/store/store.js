@@ -5,7 +5,7 @@ export const store = createStore({
     name: "Vue",
     workout: {
       duration: {
-        active: "30",
+        active: "60",
         rest: "10",
       },
       name: "Classic Workout",
