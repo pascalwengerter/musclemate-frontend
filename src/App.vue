@@ -1,3 +1,6 @@
 <template>
-  <router-view />
+  <main>
+    <router-view />
+  </main>
+  <app-footer />
 </template>
