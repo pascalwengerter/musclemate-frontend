@@ -1,6 +1,6 @@
 <template>
   <DarkLogo />
-  <WorkoutCardRun>
+  <WorkoutCard>
     <div
       class="rounded-t-2xl bg-gradient-to-r from-secondary to-primary py-8 text-center"
     >
@@ -11,35 +11,35 @@
       <h3 class="text-xl">Workout: {{ workoutTitle }}</h3>
       <progress class="border-dark border-4 mt-8" :value="progress" max="100" />
     </div>
-  </WorkoutCardRun>
+  </WorkoutCard>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { computed, onMounted, ref, unref } from "vue";
 import { useRouter } from "vue-router";
-import store from "../../store/store";
-import workouts from "../../workouts.json";
 import whistleActiveSound from "../../assets/sounds/whistle_2.mp3";
 import whistleRestSound from "../../assets/sounds/whistle.mp3";
-import WorkoutCardRun from "../../components/WorkoutCardRun.vue";
+import { useWorkoutStore } from "../../store/workout";
 
 const router = useRouter();
+const store = useWorkoutStore();
+
+const currentWorkout = store.chosenWorkout || store.availableWorkouts[0];
 
 const countDown = ref(0);
 const currentExercise = ref("");
-const exerciseIntervall = store.state.workout.duration.active;
+const exerciseIntervall = currentWorkout.defaultDuration.active;
 const finished = ref(false);
 const nextExercise = ref("");
 const paused = ref(false);
 const progress = ref(0);
-const restInterval = store.state.workout.duration.rest;
+const restInterval = currentWorkout.defaultDuration.rest;
 const whistleActive = new Audio(whistleActiveSound);
 const whistleRest = new Audio(whistleRestSound);
 const workoutProgress = ref(0);
 
-const workoutTitle = store.state.workout.name;
-const workout = workouts[workoutTitle];
-const workoutLength = workout.length;
+const workoutTitle = currentWorkout.title;
+const workoutLength = currentWorkout.exercises.length;
 
 const subHeading = computed(() => {
   if (unref(paused) && !unref(finished)) {
@@ -58,21 +58,21 @@ const sleepOneSecond = () => {
 };
 
 const runWorkout = async (exerciseList, index) => {
-  store.state.workout.finished = false;
+  store.finished = false;
 
   // eslint-disable-next-line no-unused-vars
-  for (var prop in workout) {
-    currentExercise.value = exerciseList[index].name;
+  for (const prop in currentWorkout) {
+    currentExercise.value = exerciseList[index].title;
     if (index + 1 == workoutLength) {
       nextExercise.value = "";
     } else {
-      nextExercise.value = exerciseList[index + 1].name;
+      nextExercise.value = exerciseList[index + 1].title;
     }
 
     paused.value = false;
     whistleActive.play();
     countDown.value = exerciseIntervall;
-    for (var i = 0; i <= exerciseIntervall; i++) {
+    for (let i = 0; i <= exerciseIntervall; i++) {
       await sleepOneSecond();
       countDown.value -= 1;
     }
@@ -87,18 +87,19 @@ const runWorkout = async (exerciseList, index) => {
 
     whistleRest.play();
     countDown.value = restInterval;
-    for (var j = 0; j <= restInterval; j++) {
+    for (let j = 0; j <= restInterval; j++) {
       await sleepOneSecond();
       countDown.value -= 1;
     }
     index++;
   }
-  store.state.workout.finished = true;
+
+  store.finished = true;
   router.push("finished");
 };
 
 onMounted(() => {
-  runWorkout(workout, 0);
+  runWorkout(currentWorkout?.exercises, 0);
 });
 </script>
 
