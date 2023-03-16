@@ -27,22 +27,17 @@
   </WorkoutCard>
 </template>
 
-<script>
-import { mapMutations } from "vuex";
+<script setup>
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+
 import workouts from "../../workouts.json";
 
-export default {
-  setup() {
-    return {
-      workouts,
-    };
-  },
-  methods: {
-    ...mapMutations(["setWorkoutName"]),
-    chooseExerciseAndAdvance(workoutname) {
-      this.setWorkoutName(workoutname);
-      this.$router.push({ path: "/workout/timer" });
-    },
-  },
+const router = useRouter();
+const store = useStore();
+
+const chooseExerciseAndAdvance = (workoutname) => {
+  store.commit("setWorkoutName", workoutname);
+  router.push("/workout/timer");
 };
 </script>

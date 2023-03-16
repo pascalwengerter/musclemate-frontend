@@ -5,11 +5,14 @@
     <h1 class="mb-8">Configure your workout</h1>
     <p>
       Exercise time in seconds:
-      <label for="exercise-time">{{ data.active }} Seconds</label>
+      <label class="font-bold" for="exercise-time">
+        {{ data.active }} Seconds
+      </label>
     </p>
     <input
       id="exercise-time"
       v-model="data.active"
+      class="block mx-auto my-3"
       min="5"
       max="60"
       step="5"
@@ -18,11 +21,12 @@
     />
     <p>
       Break time in seconds:
-      <label for="rest-time">{{ data.rest }} Seconds</label>
+      <label class="font-bold" for="rest-time"> {{ data.rest }} Seconds </label>
     </p>
     <input
       id="rest-time"
       v-model="data.rest"
+      class="block mx-auto my-3"
       min="5"
       max="60"
       step="5"
@@ -48,12 +52,3 @@ import store from "../../store/store";
 
 const data = store.state.workout.duration;
 </script>
-
-<style scoped>
-input {
-  @apply block mx-auto my-3;
-}
-label {
-  font-weight: bold;
-}
-</style>
