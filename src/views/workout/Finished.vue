@@ -16,14 +16,16 @@
   </WorkoutCard>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { onBeforeMount, onMounted } from "vue";
-import store from "../../store/store";
+import { useWorkoutStore } from "../../store/workout";
 import router from "../../router/index";
 import cheering from "../../assets/sounds/cheer.mp3";
 
+const store = useWorkoutStore();
+
 onBeforeMount(() => {
-  if (store.state.workout.finished == false) {
+  if (store.finished === false) {
     router.push({ path: "/error", replace: true });
   }
 });

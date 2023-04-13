@@ -15,8 +15,7 @@
         href="https://natomasunified.org/kb/add-website-to-mobile-device-home-screen/"
         target="_blank"
         rel="noopener"
-      >
-        this guide </a
+        >this guide</a
       >.
     </p>
     <p>

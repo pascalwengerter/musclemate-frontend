@@ -23,12 +23,9 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
-import workouts from "../../workouts.json";
-
 export default {
   setup() {
-    let exercises = [];
+    const exercises = [];
     // purge duplicate exercises from workouts
     return {
       exercises,

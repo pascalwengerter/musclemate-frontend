@@ -6,12 +6,12 @@
     <p>
       Exercise time in seconds:
       <label class="font-bold" for="exercise-time">
-        {{ data.active }} Seconds
+        {{ chosenWorkoutDuration.active }} Seconds
       </label>
     </p>
     <input
       id="exercise-time"
-      v-model="data.active"
+      v-model="chosenWorkoutDuration.active"
       class="block mx-auto my-3"
       min="5"
       max="60"
@@ -21,11 +21,13 @@
     />
     <p>
       Break time in seconds:
-      <label class="font-bold" for="rest-time"> {{ data.rest }} Seconds </label>
+      <label class="font-bold" for="rest-time">
+        {{ chosenWorkoutDuration.rest }} Seconds
+      </label>
     </p>
     <input
       id="rest-time"
-      v-model="data.rest"
+      v-model="chosenWorkoutDuration.rest"
       class="block mx-auto my-3"
       min="5"
       max="60"
@@ -47,8 +49,20 @@
   </WorkoutCard>
 </template>
 
-<script setup>
-import store from "../../store/store";
+<script lang="ts" setup>
+import { onBeforeMount } from "vue";
+import router from "../../router";
+import { useWorkoutStore } from "../../store/workout";
 
-const data = store.state.workout.duration;
+const store = useWorkoutStore();
+let chosenWorkoutDuration;
+if (store.chosenWorkout) {
+  chosenWorkoutDuration = store.chosenWorkout.defaultDuration;
+}
+
+onBeforeMount(() => {
+  if (!store.chosenWorkout) {
+    router.push({ path: "/error", replace: true });
+  }
+});
 </script>

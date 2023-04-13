@@ -17,13 +17,17 @@
   >
     <ul>
       <li>
-        <router-link to="/about">About</router-link>
+        <router-link class="my-1 block" to="/about">About</router-link>
       </li>
       <li>
-        <router-link to="/terms-and-conditions">Terms & Conditions</router-link>
+        <router-link class="my-1 block" to="/terms-and-conditions">
+          Terms & Conditions
+        </router-link>
       </li>
       <li>
-        <router-link to="/privacy-and-legal">Privacy & Legal</router-link>
+        <router-link class="my-1 block" to="/privacy-and-legal">
+          Privacy & Legal
+        </router-link>
       </li>
     </ul>
   </nav>
