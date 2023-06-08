@@ -3,13 +3,13 @@
 To install dependencies, run
 
 ```sh
-yarn install
+pnpm install
 ```
 
 To start the development server, run
 
 ```sh
-yarn dev
+pnpm dev
 ```
 
 and then visit [http://localhost:5173/](http://localhost:5173/).
