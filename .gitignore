@@ -5,4 +5,3 @@ dist-ssr
 *.local
 chromedriver.log
 tests_output
-yarn-error.log
