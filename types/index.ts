@@ -3,7 +3,7 @@ type Duration = {
   rest: number;
 };
 
-type Exercise = {
+export type Exercise = {
   title: string;
 };
 

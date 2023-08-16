@@ -20,6 +20,7 @@ import { useRouter } from "vue-router";
 import whistleActiveSound from "../../assets/sounds/whistle_2.mp3";
 import whistleRestSound from "../../assets/sounds/whistle.mp3";
 import { useWorkoutStore } from "../../store/workout";
+import { Exercise } from "../../../types";
 
 const router = useRouter();
 const store = useWorkoutStore();
@@ -57,12 +58,12 @@ const sleepOneSecond = () => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
-const runWorkout = async (exerciseList, index) => {
+const runWorkout = async (exerciseList: Exercise[]) => {
   store.finished = false;
 
-  // eslint-disable-next-line no-unused-vars
-  for (const prop in currentWorkout) {
+  for (let index = 0; index < exerciseList.length; index++) {
     currentExercise.value = exerciseList[index].title;
+
     if (index + 1 == workoutLength) {
       nextExercise.value = "";
     } else {
@@ -91,7 +92,6 @@ const runWorkout = async (exerciseList, index) => {
       await sleepOneSecond();
       countDown.value -= 1;
     }
-    index++;
   }
 
   store.finished = true;
@@ -99,7 +99,7 @@ const runWorkout = async (exerciseList, index) => {
 };
 
 onMounted(() => {
-  runWorkout(currentWorkout?.exercises, 0);
+  runWorkout(currentWorkout.exercises);
 });
 </script>
 
