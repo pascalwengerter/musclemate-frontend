@@ -79,4 +79,37 @@ export const availableWorkouts: Workout[] = [
       },
     ],
   },
+  {
+    title: "BJJ Warmup",
+    defaultDuration: {
+      active: 30,
+      rest: 5,
+    },
+    exercises: [
+      {
+        title: "Technical Standup (left)",
+      },
+      {
+        title: "Technical Standup (right)",
+      },
+      {
+        title: "Hip Thrust Standup (left)",
+      },
+      {
+        title: "Hip Thrust Standup (right)",
+      },
+      {
+        title: "Bridge",
+      },
+      {
+        title: "Hip Escape / Shrimp (left)",
+      },
+      {
+        title: "Hip Escape / Shrimp (right)",
+      },
+      {
+        title: "Lateral Roll",
+      },
+    ],
+  },
 ];
