@@ -23,7 +23,7 @@
     "eslint-plugin-prettier-vue": "^4.2.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "eslint-plugin-vue": "^9.14.0",
-    "postcss": "^8.4.23",
+    "postcss": "^8.4.31",
     "prettier": "^2.8.8",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.0.2",
